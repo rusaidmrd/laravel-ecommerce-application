@@ -32,6 +32,14 @@ class CategoryRepository extends BaseRepository implements CategoryContract
         return $this->all($columns, $order, $sort);
     }
 
+    public function treeList()
+    {
+        return Category::orderByRaw('-name ASC')
+            ->get()
+            ->nest()
+            ->listsFlattened('name');
+    }
+
     public function findCategoryById(int $id)
     {
         try {
@@ -43,6 +51,13 @@ class CategoryRepository extends BaseRepository implements CategoryContract
         }
     }
 
+    public function findBySlug($slug)
+    {
+        return Category::with('products')
+            ->where('slug', $slug)
+            ->where('menu', 1)
+            ->first();
+    }
 
     public function createCategory(array $params)
     {
