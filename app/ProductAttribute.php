@@ -10,7 +10,7 @@ class ProductAttribute extends Model
     protected $table = 'product_attributes';
 
 
-    protected $fillable = ['product_id', 'quantity', 'price'];
+    protected $fillable = ['product_id', 'quantity', 'price','attribute_id','value'];
 
     public function product()
     {

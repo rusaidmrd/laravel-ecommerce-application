@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Product;
 use App\Attribute;
-use App\Models\ProductAttribute;
+use App\ProductAttribute;
 
 class ProductAttributeController extends Controller
 {
@@ -37,6 +37,7 @@ class ProductAttributeController extends Controller
 
     public function addAttribute(Request $request)
     {
+
         $productAttribute = ProductAttribute::create($request->data);
 
         if ($productAttribute) {

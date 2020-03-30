@@ -155,6 +155,7 @@
                         icon: "error",
                     });
                 } else {
+
                     let _this = this;
                     let data = {
                         attribute_id: this.currentAttributeId,
